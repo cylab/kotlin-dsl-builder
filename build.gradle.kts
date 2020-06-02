@@ -15,11 +15,19 @@ allprojects {
     }
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs = listOf("-Xinline-classes", "-Xjsr305=strict")
+        jvmTarget = "1.8"
+    }
+}
+
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
     group = "net.highteq.cylab"
     version = "1.0-SNAPSHOT"
+    java.sourceCompatibility = JavaVersion.VERSION_1_8
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {

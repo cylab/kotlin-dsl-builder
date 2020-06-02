@@ -6,7 +6,14 @@
 
 plugins {
 	id("java-gradle-plugin")
+	id("com.vanniktech.maven.publish") version "0.11.1"
 }
+
+val GROUP : String by ext
+val VERSION_NAME : String by ext
+
+group = GROUP
+version = VERSION_NAME
 
 gradlePlugin {
 	plugins {
